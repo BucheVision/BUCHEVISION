@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seconds Since Epoch</title>
+    <link rel="stylesheet" type="text/css" href="bv.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Seconds Since Epoch</h1>
+        <p id="seconds"></p>
+        <button id="refreshButton">Refresh</button>
+        <a href="https://buchevision.neocities.org/calculator" target="_blank">
+            <button>Go to Calculator</button>
+        </a>
+        <a href="https://buchevision.neocities.org/credits" target="_blank">
+            <button>Go to Credits</button>
+        </a>
+    </div>
+
+    <script>
+        function updateSeconds() {
+            const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds
+            document.getElementById('seconds').textContent = `Seconds since epoch: ${currentTime}`;
+        }
+
+        // Update the seconds every second
+        updateSeconds();
+        setInterval(updateSeconds, 1000);
+
+        // Add functionality to the Refresh button
+        const refreshButton = document.getElementById('refreshButton');
+        refreshButton.addEventListener('click', updateSeconds);
+    </script>
+</body>
+</html>
